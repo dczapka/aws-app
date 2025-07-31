@@ -17,4 +17,4 @@ jobs:
         run: sudo docker rm -f aws-app-container || true
 
       - name: Run Docker container
-        run: sudo docker run -d -p 8080:8080 --name aws-app-container
+        run: udo docker run -d -p 8080:8080 --name aws-app-container dcdevdc/aws-app:latest
