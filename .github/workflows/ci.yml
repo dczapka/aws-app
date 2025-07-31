@@ -5,28 +5,24 @@ on:
     branches: [ "main" ]
 
 jobs:
-  build:
+  build_and_push:
     runs-on: ubuntu-latest
-
     steps:
-    - uses: actions/checkout@v4
-    - name: Login Dockerhub
-      env:
-        DOCKER_USERNAME: ${{secrets.DOCKER_USERNAME}}
-        DOCKER_PASSWORD: ${{secrets.DOCKER_PASSWORD}}
-      run: docker login -u $DOCKER_USERNAME -p $DOCKER_PASSWORD
+      - name: Checkout code
+        uses: actions/checkout@v4
 
-    - name: Grant execute permission for gradle
-      run: chmod +x gradlew
+      - name: Login to Docker Hub
+        uses: docker/login-action@v3
+        with:
+          username: ${{ secrets.DOCKER_USERNAME }}
+          password: ${{ secrets.DOCKER_PASSWORD }}
 
-    - name: Gradle build
-      run: ./gradlew build
+      - name: Build and push Docker image
+        uses: docker/build-push-action@v5
+        with:
+          context: .
+          push: true
 
-    - name: Build the Docker image
-      run: docker build -t dcdevdc/aws-app:latest .
-
-    - name: Docker images
-      run: docker images
-
-    - name: Push to Dockerhub
-      run: docker push dcdevdc/aws-app:latest
+          tags: |
+            dcdevdc/aws-app:latest
+            dcdevdc/aws-app:${{ github.sha }}
