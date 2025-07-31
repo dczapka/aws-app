@@ -11,10 +11,10 @@ jobs:
     runs-on: self-hosted
     steps:
       - name: Pull Docker image
-        run: sudo docker pull dcdevdc/aws-app:letest
+        run: sudo docker pull dcdevdc/aws-app:latest
 
       - name: Delete old Docker image
-        run: sudo docker rm -f dcdevdc/aws-app:letest || true
+        run: sudo docker rm -f dcdevdc/aws-app:latest || true
 
       - name: Run Docker container
         run: sudo docker run -d -p 8080:8080 --name dcdevdc/aws-app
