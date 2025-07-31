@@ -1,8 +1,1 @@
-PATH="/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/usr/lib/jdk/jdk-11.0.8/bin"
-JAVA_HOME="/usr/lib/jdk/jdk-11.0.8"
 
-PATH="/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/home/daro/dev/tools/jdk-24.0.1/bin"
-JAVA_HOME=" /home/daro/dev/tools/jdk-24.0.1"
-
-PATH="/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/usr/lib/jvm/java-1.21.0-openjdk-amd64/bin"
-JAVA_HOME="/usr/lib/jvm/java-1.21.0-openjdk-amd64"
