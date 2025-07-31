@@ -17,6 +17,12 @@ jobs:
           username: ${{ secrets.DOCKER_USERNAME }}
           password: ${{ secrets.DOCKER_PASSWORD }}
 
+      - name: Grant gradle permission
+        run: chmod +x gradlew
+
+      - name: Gradle clean & build commands
+        run: ./gradlew clean build
+
       - name: Build and push Docker image
         uses: docker/build-push-action@v5
         with:
